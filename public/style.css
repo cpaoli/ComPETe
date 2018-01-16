@@ -1,0 +1,74 @@
+.content{
+    display:flex;
+    flex-wrap: wrap;
+}
+.img-thumbnail{
+    margin-bottom: 1em;
+}
+
+#griglia{
+    width: 100%;
+    height: 30%;
+    object-fit: cover;
+    border-style: none;
+    vertical-align: middle;
+}
+#sfondo{
+    background: center center;
+    background-image: url(https://images.unsplash.com/photo-1415369629372-26f2fe60c467);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    top: auto;
+    left: 0;
+    position: fixed;
+    background-size:cover;
+    box-shadow:inset 0 -1px 5px rgba(0,0,0,0.6);
+    background-position: center;
+}
+
+.petButton{
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+hr{
+    border-top: 0px solid rgb(255,255,255);
+    width: 30%;
+}
+
+#title{
+    color: white;
+}
+
+#welcome{
+    color: white;
+    font-size: 4em;
+    font-weight: 700;
+}
+
+#container{
+    padding-top: 15%;
+    text-align: center;
+    text-shadow: 0px 2px 1px rgba(0,0,0,0.4), 0px 5px 10px rgba(0,0,0,0.1), 0px 15px 20px rgba(0,0,0,0.1);
+}
+
+.forms{
+    display: inline;
+}
+.inputs{
+    width: 30%;
+    margin: 25px auto;
+    border: 0.5px solid black;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+h2{
+    text-align: center;
+}
+
+.inputsb{
+    margin: 10px 5px;
+}
