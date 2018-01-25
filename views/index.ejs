@@ -1,5 +1,7 @@
 <% include partials/header %>
-
+ <% if (success.length > 0) { %>
+   <div class="alert alert-danger"><%= success %></div>
+ <% } %>
 <div class="container">
      <header class="jumbotron">
          <div class="container">
@@ -11,18 +13,29 @@
          </div>
      </header>
      
+     <% if (success) { %>
+        <div class="lert alert-success">
+            <p><%= message %></p>
+        </div>
+    <% } %>
+    
     <div class="row text-center content">
         <% pet.forEach(function (e){%>
             <div class="col-md-3 col-sm-6">
                 <div class="img-thumbnail">
                    <img id = "griglia" src="<%= e.image %>" >
                    <div class="caption">
-                       <h4><%= e.name %></h4>
+                       <h4><%= e.name %> - <%= e.author.username %></h4>
                    </div>
                    <p>
-                       <a href="/pets/<%= e._id %>" class="btn btn-primary">More Info</a>
+                       <a href="/pets/<%= e._id %>">More Info</a>
                    </p>
-                   <a href="/pets/<%= e._id %>/comment/new"><button>Add a Comment</button></a>
+                        <% if (user) { %>
+                       <form method="POST" action="/pets/<%=e._id%>?_method=DELETE">
+                          <button type="submit" class = "btn btn-danger btn-sx" ><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        </form>
+                         <a href = "/pets/<%=e._id%>/edit"><button type="submit" class = "btn btn-primary btn-sx"><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
+                    <% } %>
                 </div>
             </div>
         <% }); %>

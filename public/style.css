@@ -72,3 +72,61 @@ h2{
 .inputsb{
     margin: 10px 5px;
 }
+
+.jumbotron{
+    margin-top: 30px;
+}
+
+
+
+
+.detailBox {
+    width:300px;
+    border:1px solid #bbb;
+    margin:50px;
+}
+.titleBox {
+    background-color:#fdfdfd;
+    padding:10px;
+}
+.actionBox .form-group * {
+    width:100%;
+}
+.commentList {
+    padding:0;
+    list-style:none;
+    max-height:200px;
+    overflow:auto;
+}
+.commentList li {
+    margin:0;
+    margin-top:10px;
+}
+.commentList li > div {
+    display:table-cell;
+}
+.commenterImage p{
+   margin:0;
+}
+.commentText p {
+    margin:0;
+}
+.actionBox {
+    border-top:1px dotted #bbb;
+    padding:10px;
+}
+.btn{
+     float: left;
+}
+
+.main-pic{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.main{
+  position: absolute;
+  width: 300px;
+  left: 50%;
+  margin: auto;
+}

@@ -1,0 +1,26 @@
+<% include partials/header %>
+<div class="container">
+    <div class="row forms" style = "display: inline">
+        <div class = "inputs">
+            <h2>Edit <%= pet.name %></h2>
+            <div  class ="inputsb">
+                <form method="POST" action="/pets/<%=pet._id%>?_method=PUT">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="name" value="<%=pet.name%>">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="image" value="<%=pet.image%>">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="desc" value="<%=pet.desc%>">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                    </div>
+                </form>
+                <a href="/pets">Go Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+<% include partials/footer %>
