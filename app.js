@@ -15,7 +15,7 @@ var express     = require("express"),
     //requiring routes
 var commentRoutes    = require("./routes/comments"),
     petRoutes = require("./routes/pets"),
-    indexRoutes      = require("./routes/index")
+    indexRoutes      = require("./routes/index");
     
 mongoose.connect("mongodb://localhost/compete");
 app.use(bodyParser.urlencoded({extended: true}));
@@ -55,21 +55,6 @@ app.use(function (req, res, next) {
   res.locals.login = req.isAuthenticated();
   next();
 });
-
-// passport.use(
-//   function(username, password, done) {
-//     User.findOne({ username: username }, function (err, user) {
-//       if (err) { return done(err); }
-//       if (!user) {
-//         return done(null, false, { message: 'Incorrect username.' });
-//       }
-//       if (!user.validPassword(password)) {
-//         return done(null, false, { message: 'Incorrect password.' });
-//       }
-//       return done(null, user);
-//     });
-//   }
-// );
 
 app.use("/", indexRoutes);
 app.use("/pets", petRoutes);

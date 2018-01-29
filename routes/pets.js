@@ -10,12 +10,12 @@ router.get("/", function(req, res){
             console.log(err);
         }
         else{
-             res.render("index", {pet: allPets, message: "ciao", user: req.user });
+             res.render("index", {pet: allPets, req: req});
         }
     });
 });
 
-router.post("/", function (req, res) {
+router.post("/", middleware.isAuthenticated,  function (req, res) {
      var pet = new Pet({
         name: req.body.name,
         image: req.body.image,
@@ -34,7 +34,7 @@ router.post("/", function (req, res) {
 });
 
 router.get("/new", middleware.isAuthenticated, function(req, res){
-    res.render("new");
+    res.render("new",  {req: req});
 });
 
 router.get("/:id", function(req, res){
@@ -42,12 +42,12 @@ router.get("/:id", function(req, res){
         if (err){
             console.log(err);
         } else{
-            res.render("show", {pet: seePet});
+            res.render("show", {pet: seePet, req: req});
         }
     });
 });
 
-router.put('/:id', function(req, res){
+router.put('/:id', middleware.checkUserPet, function(req, res){
 	Pet.findByIdAndUpdate( req.params.id, req.body, function(err){
     	 	if(err){
     	 	    console.log(err);
@@ -57,18 +57,17 @@ router.put('/:id', function(req, res){
     	 });
 });
 
-router.get('/:id/edit', function (req, res){
+router.get('/:id/edit', middleware.checkUserPet, function (req, res){
     Pet.findById(req.params.id, function(err, pet){
         if (err) {
             console.log(err);
           } else{
-           res.render("editPet", {pet: pet}); 
+           res.render("editPet", {pet: pet,  req: req}); 
           }
     });
 });
 
-router.delete('/:id', function(req, res){
-    console.log(req.params.id);
+router.delete('/:id', middleware.checkUserPet, function(req, res){
 	Pet.findByIdAndRemove(req.params.id, function (err, pet) {
           if (err) {
             console.log(err);

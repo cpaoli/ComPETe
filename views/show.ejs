@@ -3,12 +3,20 @@
 <h1><%=pet.name%></h1>
 <img class = "main-pic" src="<%= pet.image %>">
 <p><%= pet.desc %></p>
+<% if (req.user && JSON.stringify(pet.author.id) === JSON.stringify(req.user._id)) { %>
+    <form method="POST" action="/pets/<%=pet._id%>?_method=DELETE">
+      <button type="submit" class = "btn btn-danger btn-sx" ><i class="fa fa-trash" aria-hidden="true"></i></button>
+    </form>
+     <a href = "/pets/<%=pet._id%>/edit"><button type="submit" class = "btn btn-primary btn-sx"><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
+<% } %>
 </div>
 <a href ="/pets">Go Back</a>
 <div class="detailBox">
     <div class="titleBox">
       <label>Comments</label>
+      <% if (req.user) { %>
       <a href="/pets/<%= pet._id %>/comment/new"><button class = "btn btn-primary btn-sx"><i class="fa fa-comment" aria-hidden="true"></i></button></a>
+      <% } %>
     </div>
     <div class="actionBox">
         <ul class="commentList">
@@ -18,10 +26,12 @@
                 <div class="commentText">
                     <strong><p><%= e.author.username %></p></strong>
                     <p><%= e.text %></p>
+                     <% if (req.user && JSON.stringify(e.author.id) === JSON.stringify(req.user._id)) { %>
                     <a href = "/pets/<%=pet._id%>/comment/<%=e._id%>/edit"><button type="submit" class = "btn btn-primary btn-sx"><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
                     <form method="POST" action="/pets/<%=pet._id%>/comment/<%=e._id%>?_method=DELETE">
                       <button type="submit" class = "btn btn-danger btn-sx" ><i class="fa fa-trash" aria-hidden="true"></i></button>
                     </form>
+                     <% } %>
                 </div>
             </li>
         <% }); %>

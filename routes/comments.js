@@ -11,18 +11,17 @@ router.get("/new", middleware.isAuthenticated, function(req, res){
             console.log(err);
         }
         else{
-             res.render("comment", {pet: pet});
+             res.render("comment", {pet: pet, req: req});
         }
     });
 });
 
-router.post("/", function (req, res) {
+router.post("/", middleware.isAuthenticated, function (req, res) {
     Pet.findById(req.params.id, function(err, pet){
         if (err){
          console.log(err);
         } else {
            Comment.create(req.body.comment, function(err, comment){
-            
             comment.author.id =  req.user.id;
             comment.author.username =  req.user.username;
                if(err){
@@ -38,7 +37,7 @@ router.post("/", function (req, res) {
     });
 });
 
-router.put('/:comm_id', function(req, res){
+router.put('/:comm_id', middleware.checkUserComment, function(req, res){
     Pet.findById(req.params.id, function(err, pet){
         if (err){
          console.log(err);
@@ -54,7 +53,7 @@ router.put('/:comm_id', function(req, res){
     });
 });
 
-router.get('/:comm_id/edit', function (req, res){
+router.get('/:comm_id/edit', middleware.checkUserComment, function (req, res){
      Pet.findById(req.params.id, function(err, pet){
         if (err){
          console.log(err);
@@ -63,14 +62,14 @@ router.get('/:comm_id/edit', function (req, res){
             if (err) {
                 console.log(err);
           } else{
-           res.render("editComment", {comment: comment, pet: pet}); 
+           res.render("editComment", {comment: comment, pet: pet, req: req}); 
           }
             });
         }
     });
 });
 
-router.delete('/:comm_id', function(req, res){
+router.delete('/:comm_id', middleware.checkUserComment, function(req, res){
 	Comment.findByIdAndRemove(req.params.comm_id, function (err) {
           if (err) {
             console.log(err);

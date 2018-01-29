@@ -1,6 +1,10 @@
 <% include partials/header %>
 <div class="container">
-    
+    <% if (error && error.length >0) { %>
+        <div class="alert alert-danger">
+            <p><%= error %></p>
+        </div>
+<% } %>
     <div class="row forms">
         <div class = "inputs">
             <h2>Register</h2>

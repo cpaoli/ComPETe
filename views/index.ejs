@@ -1,5 +1,5 @@
 <% include partials/header %>
- <% if (success.length > 0) { %>
+ <% if (success && success.length >0) { %>
    <div class="alert alert-success"><%= success %></div>
  <% } %>
 <div class="container">
@@ -12,12 +12,6 @@
              </p>
          </div>
      </header>
-     
-     <% if (success) { %>
-        <div class="alert alert-success">
-            <p><%= message %></p>
-        </div>
-    <% } %>
     
     <div class="row text-center content">
         <% pet.forEach(function (e){%>
@@ -30,12 +24,6 @@
                    <p>
                        <a href="/pets/<%= e._id %>">More Info</a>
                    </p>
-                        <% if (user) { %>
-                       <form method="POST" action="/pets/<%=e._id%>?_method=DELETE">
-                          <button type="submit" class = "btn btn-danger btn-sx" ><i class="fa fa-trash" aria-hidden="true"></i></button>
-                        </form>
-                         <a href = "/pets/<%=e._id%>/edit"><button type="submit" class = "btn btn-primary btn-sx"><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
-                    <% } %>
                 </div>
             </div>
         <% }); %>
