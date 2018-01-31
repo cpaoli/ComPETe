@@ -1,18 +1,10 @@
-.content{
-    display:flex;
-    flex-wrap: wrap;
-}
-.img-thumbnail{
-    margin-bottom: 1em;
-}
+/*.content{*/
+/*    display:flex;*/
+/*    flex-wrap: wrap;*/
+/*}*/
 
-#griglia{
-    width: 100%;
-    height: 30%;
-    object-fit: cover;
-    border-style: none;
-    vertical-align: middle;
-}
+/*landing page*/
+
 #sfondo{
     background: center center;
     background-image: url(https://images.unsplash.com/photo-1415369629372-26f2fe60c467);
@@ -31,11 +23,8 @@
     color: #333;
     background-color: #fff;
     border-color: #ccc;
-}
-
-hr{
-    border-top: 0px solid rgb(255,255,255);
-    width: 30%;
+    border-radius: 4px;
+    padding: 5px;
 }
 
 #title{
@@ -53,6 +42,41 @@ hr{
     text-align: center;
     text-shadow: 0px 2px 1px rgba(0,0,0,0.4), 0px 5px 10px rgba(0,0,0,0.1), 0px 15px 20px rgba(0,0,0,0.1);
 }
+
+/*index page*/
+
+.jumbotron{
+    margin-top: 30px;
+}
+
+.pic{
+    display: inline-block;
+    height: 30%;
+}
+
+#griglia{
+    width: 100%;
+    height: 30%;
+}
+
+#riga{
+	border: 1px;
+	box-shadow: 0 10px 10px -10px white inset;
+    border-top: 1px solid rgb(255,255,255);
+    width: 30%;
+}
+
+#name{
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    
+}
+#author{
+   font-size: 12px;
+}
+
+/*login/register/newPet pages*/
 
 .forms{
     display: inline;
@@ -72,61 +96,91 @@ h2{
 .inputsb{
     margin: 10px 5px;
 }
-
-.jumbotron{
-    margin-top: 30px;
+.comm-input{
+   
 }
 
-
-
-
-.detailBox {
-    width:300px;
-    border:1px solid #bbb;
-    margin:50px;
+/*show page*/
+.go-back{
+    margin: 15px;
 }
-.titleBox {
-    background-color:#fdfdfd;
-    padding:10px;
+.main{
+    margin-bottom: 5em;
 }
-.actionBox .form-group * {
-    width:100%;
-}
-.commentList {
-    padding:0;
-    list-style:none;
-    max-height:200px;
-    overflow:auto;
-}
-.commentList li {
-    margin:0;
-    margin-top:10px;
-}
-.commentList li > div {
-    display:table-cell;
-}
-.commenterImage p{
-   margin:0;
-}
-.commentText p {
-    margin:0;
-}
-.actionBox {
-    border-top:1px dotted #bbb;
-    padding:10px;
-}
-.btn{
-     float: left;
-}
-
 .main-pic{
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    height: 500px;
+    width: 500px;
 }
-.main{
-  position: absolute;
-  width: 300px;
-  left: 50%;
-  margin: auto;
+
+.pet-property{
+    margin-left: 19em;
+}
+
+#username{
+   font-size: 25px; 
+   font-weight: bold;  
+   margin: 0;
+   color: #15b1a6;
+}
+
+#petname{
+   font-weight: bold;  
+   font-size: 15px; 
+   margin: 0;
+  color: #15b1a6;
+}
+
+#desc{
+    font-size: 15px; 
+    margin: 0;
+    color: #555963;
+}
+
+/*comment box*/
+
+.single-box .comm-title {
+    color: #878d9e;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-style: normal;
+    box-sizing: border-box;
+}
+
+.comment-body{
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+.comment-text{
+    color: #555963;
+    margin: 0;
+}
+.comment-author{
+    color: #15b1a6;
+    letter-spacing: 0.2em;
+    font-family: "brandon-grotesque","Helvetica","Arial",sans-serif !important;
+    margin-bottom: 0;
+}
+
+.comment-list{
+    list-style:none;
+    padding: 0;
+}
+
+.detailBox{
+    float: left;
+    margin-left: 30%;
+    width: 40%;
+}
+
+.comment-space{
+    border-top: 1px dashed #8c8b8b;
+    border-bottom: 1px dashed #fff;
 }

@@ -14,7 +14,7 @@ module.exports = {
             Pet.findById(req.params.id, function(err, pet){
                 if(err) {
                     console.log(err);
-                } if(JSON.stringify(pet.author.id) === JSON.stringify(req.user._id)){
+                } else if(JSON.stringify(pet.author.id) === JSON.stringify(req.user._id)){
                         next();
                     }
                     else{
@@ -38,7 +38,6 @@ module.exports = {
                            console.log(err);
                          } else {
                             if(JSON.stringify(comment.author.id) === JSON.stringify(req.user._id)){
-                                console.log("so uguali");
                                 next();
                             } else{
                                res.redirect("/pets"); 

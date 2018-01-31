@@ -8,6 +8,12 @@ router.get("/", function(req, res) {
     res.render("landing", {req: req});
 });
 
+router.get('/auth/facebook', passport.authenticate('facebook'));
+
+router.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { successRedirect: '/pets',
+                                      failureRedirect: '/login' }));
+
 // login - register
 
 router.get('/register', function(req, res) {

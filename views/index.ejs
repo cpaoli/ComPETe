@@ -14,12 +14,13 @@
      </header>
     
     <div class="row text-center content">
-        <% pet.forEach(function (e){%>
-            <div class="col-md-3 col-sm-6">
+        <% pet.forEach(function (e) {%>
+            <div class="pic col-md-3 col-sm-6">
                 <div class="img-thumbnail">
                    <img id = "griglia" src="<%= e.image %>" >
                    <div class="caption">
-                       <h4><%= e.name %> - <%= e.author.username %></h4>
+                       <p id = "name"><%= e.name %></p>
+                       <h6 id = "author">By <%= e.author.username %></h6>
                    </div>
                    <p>
                        <a href="/pets/<%= e._id %>">More Info</a>

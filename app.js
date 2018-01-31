@@ -3,6 +3,7 @@ var express     = require("express"),
     bodyParser  = require("body-parser"),
     mongoose    = require("mongoose"),
     passport = require('passport'),
+    FacebookStrategy = require('passport-facebook').Strategy,
     cookieParser = require("cookie-parser"),
     LocalStrategy = require('passport-local'),
     flash        = require("connect-flash"),
@@ -55,6 +56,22 @@ app.use(function (req, res, next) {
   res.locals.login = req.isAuthenticated();
   next();
 });
+
+
+// passport.use(new FacebookStrategy({
+//     clientID: FACEBOOK_APP_ID,
+//     clientSecret: FACEBOOK_APP_SECRET,
+//     callbackURL: "http://localhost:8080/auth/facebook/callback",
+//     profileFields: ['id', 'displayName', 'photos', 'email']
+//   },
+//   function(accessToken, refreshToken, profile, done) {
+//     User.findOrCreate({ facebookId: profile.id }, function(err, user) {
+//       if (err) { return done(err); }
+//       done(null, user);
+//     });
+//   }
+// ));
+
 
 app.use("/", indexRoutes);
 app.use("/pets", petRoutes);
