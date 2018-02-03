@@ -2,6 +2,10 @@
   "name": "compete",
   "version": "1.0.0",
   "description": "",
+  "version": "1.0.0",
+  "engines": {
+    "node": "8.3.x"
+  },
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
