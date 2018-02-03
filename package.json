@@ -2,7 +2,6 @@
   "name": "compete",
   "version": "1.0.0",
   "description": "",
-  "version": "1.0.0",
   "engines": {
     "node": "8.3.x"
   },
@@ -24,7 +23,7 @@
     "mongoose": "^5.0.0-rc2",
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
-    "passport-local": "^1.0.0"
-    
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.4.0"
   }
 }
