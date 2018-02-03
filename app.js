@@ -18,9 +18,8 @@ var commentRoutes    = require("./routes/comments"),
     petRoutes = require("./routes/pets"),
     indexRoutes      = require("./routes/index");
     
-//mongoose.connect("mongodb://localhost/compete");
-mongoose.connect("mongodb://cpaoli:compete@ds121088.mlab.com:21088/compete");
-//mongodb://cpaoli:compete@ds121088.mlab.com:21088/compete
+var url = process.env.DATABASEURL || "mongodb://localhost/compete";
+mongoose.connect(url);
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
