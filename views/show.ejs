@@ -1,7 +1,7 @@
 <% include partials/header %>
 <a href ="/pets" class = "go-back">Go Back</a>
 <div class = "main container">
-    <% if (req.user && JSON.stringify(pet.author.id) === JSON.stringify(req.user._id)) { %>
+    <% if (currentUser && JSON.stringify(pet.author.id) === JSON.stringify(currentUser._id)) { %>
     <div class = "btn-group">
         <form method="POST" action="/pets/<%=pet._id%>?_method=DELETE">
           <button type="submit" class = "btn btn-danger btn-sx" ><i class="fa fa-trash" aria-hidden="true"></i></button>
@@ -18,7 +18,7 @@
 </div>
 <div class="detailBox">
     <div id = "comments" class="single-box comment-area">
-        <% if (req.user) { %>
+        <% if (currentUser) { %>
           <h3 class ="comm-title">Comments</h3>
           <div class ="comment-button">
               <a href="/pets/<%= pet._id %>/comment/new"><button class = "btn btn-primary btn-sx"><i class="fa fa-comment" aria-hidden="true"></i></button></a>
@@ -29,7 +29,7 @@
                 <div class="comment-body">
                     <strong><p class = "comment-author"><%= e.author.username %></p></strong>
                     <p class ="comment-text"><%= e.text %></p>
-                     <% if (req.user && JSON.stringify(e.author.id) === JSON.stringify(req.user._id)) { %>
+                     <% if (currentUser && JSON.stringify(e.author.id) === JSON.stringify(currentUser._id)) { %>
                      <div class ="btn-group comment-button">
                     <a href = "/pets/<%=pet._id%>/comment/<%=e._id%>/edit"><button type="submit" class = "btn btn-primary btn-sx"><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
                     <form method="POST" action="/pets/<%=pet._id%>/comment/<%=e._id%>?_method=DELETE">
